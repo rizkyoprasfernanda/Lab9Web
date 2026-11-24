@@ -1,0 +1,340 @@
+:root {
+  --teks: #1f2933;
+  --teks-muted: #616e7c;
+  --latar: #f5f5f4;
+  --kartu: #ffffff;
+  --garis: #e4e4e7;
+  --aksen: #1d4ed8;
+  --aksen-gelap: #1e40af;
+  --sukses-bg: #ecfdf3;
+  --sukses-teks: #166534;
+  --error-bg: #fef2f2;
+  --error-teks: #991b1b;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--teks);
+  background: var(--latar);
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  background: var(--latar);
+  border: 1px solid var(--garis);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+a {
+  color: var(--aksen);
+}
+
+/* ---------- Kerangka halaman ---------- */
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--garis);
+}
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--teks-muted);
+}
+
+/* ---------- Navigasi ---------- */
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--garis);
+}
+nav a {
+  color: var(--teks-muted);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+}
+nav a:hover {
+  color: var(--teks);
+  background: var(--latar);
+}
+nav a.aktif {
+  color: var(--aksen);
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+main {
+  min-height: 260px;
+  padding: 28px;
+}
+
+footer {
+  padding: 14px 28px;
+  border-top: 1px solid var(--garis);
+  font-size: 13px;
+  color: var(--teks-muted);
+  text-align: center;
+}
+footer p {
+  margin: 0;
+}
+
+/* ---------- Konten ---------- */
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+section p {
+  margin: 0 0 12px;
+}
+
+.kartu {
+  display: inline-block;
+  margin: 8px 0 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+.kartu strong {
+  font-size: 18px;
+  color: var(--aksen);
+  margin-left: 4px;
+}
+
+/* ---------- Tabel ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th,
+td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--garis);
+}
+thead th {
+  background: var(--latar);
+  font-weight: 600;
+  color: var(--teks-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+tbody tr:hover {
+  background: #fafafa;
+}
+td img {
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--garis);
+  object-fit: cover;
+}
+
+/* Tabel profil (tanpa thead, sisi kiri sebagai label) */
+section > table:not(:has(thead)) th {
+  width: 160px;
+  background: var(--latar);
+  color: var(--teks-muted);
+  font-weight: 500;
+}
+section > table:not(:has(thead)) {
+  max-width: 480px;
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.aksi a {
+  margin-right: 12px;
+  font-size: 14px;
+}
+.aksi form {
+  display: inline;
+}
+
+/* ---------- Tombol ---------- */
+
+.tombol,
+button {
+  display: inline-block;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--aksen);
+  border: 1px solid var(--aksen);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+}
+.tombol:hover,
+button:hover {
+  background: var(--aksen-gelap);
+  border-color: var(--aksen-gelap);
+}
+
+/* Tombol hapus dibuat lebih kecil dan tidak mencolok */
+.aksi button.btn-hapus {
+  padding: 3px 10px;
+  font-size: 13px;
+  color: #b91c1c;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.aksi button.btn-hapus:hover {
+  background: var(--error-bg);
+  border-color: #fecaca;
+}
+
+/* ---------- Form ---------- */
+
+.form-barang {
+  max-width: 480px;
+}
+.form-barang label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--teks);
+}
+.form-barang input,
+.form-barang textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--teks);
+  background: #fff;
+  border: 1px solid #d4d4d8;
+  border-radius: var(--radius);
+}
+.form-barang input[type="file"] {
+  padding: 6px;
+  font-size: 13px;
+}
+.form-barang input:focus,
+.form-barang textarea:focus {
+  outline: none;
+  border-color: var(--aksen);
+  box-shadow: 0 0 0 3px #dbeafe;
+}
+.form-barang img {
+  display: block;
+  margin-top: 6px;
+  border: 1px solid var(--garis);
+  border-radius: 4px;
+}
+.aksi-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.aksi-form a {
+  font-size: 14px;
+  color: var(--teks-muted);
+  text-decoration: none;
+}
+.aksi-form a:hover {
+  color: var(--teks);
+}
+
+/* ---------- Pesan ---------- */
+
+.alert {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+}
+.alert ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.alert-success {
+  background: var(--sukses-bg);
+  color: var(--sukses-teks);
+  border-color: #bbf7d0;
+}
+.alert-error {
+  background: var(--error-bg);
+  color: var(--error-teks);
+  border-color: #fecaca;
+}
+
+/* ---------- Layar kecil ---------- */
+
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  main {
+    padding: 20px;
+  }
+  header,
+  footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
